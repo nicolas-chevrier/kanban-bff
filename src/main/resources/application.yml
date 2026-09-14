@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: kanban-bff
+  datasource:
+    url: jdbc:h2:file:./data/workorderdb;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  # Note : spring.h2.console.* n'a plus d'effet en Spring Boot 4 (autoconfiguration
+  # retiree) ; la console H2 est demarree manuellement par H2ConsoleConfig
+  # (serveur web H2 autonome sur le port 8082).
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+
+logging:
+  level:
+    com.kanban.kanbanbff: INFO
